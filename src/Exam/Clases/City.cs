@@ -8,7 +8,7 @@ using System.Linq;
 namespace Exam.Clases
 {
 
-    class City : Object
+    class City
     {
         private string name;
         private DateTime date;
@@ -74,7 +74,7 @@ namespace Exam.Clases
         }
         public override string ToString()
         {
-            return "Название города:" + Name + "\nДата основания:" + Date.ToShortDateString() + "\nНаселение:" + Count + "\n";
+            return "Название города:" + Name + "\nДата основания:" + Date.ToLongDateString() + "\nНаселение:" + Count + "\n";
         }
 
     }
