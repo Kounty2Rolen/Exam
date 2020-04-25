@@ -30,9 +30,10 @@ namespace Exam.Clases
             this.Date = DateTime.MinValue;
             this.Count = 0;
         }
-        public City[] Sort(City[] cities)
+        public static City[] Sort(City[] cities)
         {
-            return cities = cities.AsQueryable<City>().OrderBy(c => c.Name).ThenBy(c => c.Date).ToArray();
+            City[] cit= cities.AsQueryable<City>().OrderByDescending(c => c.Count).ThenByDescending(c => c.Date).ToArray();
+            return cit;
         }
 
         public static bool SaveAs(string path, City[] cities)

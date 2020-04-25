@@ -10,7 +10,7 @@ namespace Exam
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             try
             {
@@ -32,7 +32,7 @@ namespace Exam
                     DateTime.TryParse(date, out result);
                     cities[i] = new City(name, result, count);
                 }
-
+                cities = City.Sort(cities);
                 foreach (var city in cities)
                 {
                     Console.WriteLine(city.ToString());
