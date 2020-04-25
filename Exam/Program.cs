@@ -35,7 +35,7 @@ namespace Exam
 
                 foreach (var city in cities)
                 {
-                    Console.WriteLine(cities.ToString());
+                    Console.WriteLine(city.ToString());
                 }
                 Console.WriteLine("Введите путь для сохранения файлов");
                 var path = Console.ReadLine();

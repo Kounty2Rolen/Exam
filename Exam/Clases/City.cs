@@ -59,10 +59,13 @@ namespace Exam.Clases
             }
             else
             {
-                TextWriter opnFile = new StreamWriter(path.ToString());
-                foreach (var cty in cities)
+                using (TextWriter opnFile = new StreamWriter(path.ToString()))
                 {
-                    opnFile.WriteLine(cty.ToString());
+                    foreach (var cty in cities)
+                    {
+                        opnFile.WriteLine(cty.ToString());
+                    }
+                    opnFile.Close();
                 }
                 return true;
             }
