@@ -35,7 +35,7 @@ namespace Exam.Clases
             return cities = cities.AsQueryable<City>().OrderBy(c => c.Name).ThenBy(c => c.Date).ToArray();
         }
 
-        public bool SaveAs(string path, City[] cities)
+        public static bool SaveAs(string path, City[] cities)
         {
             if (File.Exists(path.ToString()))
             {
