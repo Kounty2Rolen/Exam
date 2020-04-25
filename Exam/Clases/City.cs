@@ -2,6 +2,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace Exam.Clases
 {
@@ -27,6 +29,44 @@ namespace Exam.Clases
             this.Name = "";
             this.Date = DateTime.MinValue;
             this.Count = 0;
+        }
+        public City[] Sort(City[] cities)
+        {
+            return cities = cities.AsQueryable<City>().OrderBy(c => c.Name).ThenBy(c => c.Date).ToArray();
+        }
+
+        public bool SaveAs(string path, City[] cities)
+        {
+            if (File.Exists(path.ToString()))
+            {
+
+                Console.WriteLine("Файл существует,перезаписать?(Y/N)");
+                string answer = Console.ReadLine();
+                if (answer == "y" || answer == "Y" || answer == "у" || answer == "У" || answer == "д" || answer == "Д")
+                {
+                    File.Delete(path);
+                    TextWriter opnFile = new StreamWriter(path);
+                    foreach (var cty in cities)
+                    {
+                        opnFile.WriteLine(cty.ToString());
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                TextWriter opnFile = new StreamWriter(path.ToString());
+                foreach (var cty in cities)
+                {
+                    opnFile.WriteLine(cty.ToString());
+                }
+                return true;
+            }
+
         }
         public override string ToString()
         {

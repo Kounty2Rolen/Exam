@@ -14,7 +14,8 @@ namespace Exam
             try
             {
                 Console.Write("Введите кол-во городов для заполнения:");
-                var CityCount = Convert.ToInt32(Console.ReadLine());
+                int CityCount;
+                int.TryParse(Console.ReadLine(),out CityCount);
                 Console.Write("\n");
                 City[] cities = new City[CityCount];
                 for (int i = 0; i >= CityCount; i++)
@@ -31,7 +32,7 @@ namespace Exam
                     DateTime.TryParse(date, out result);
                     cities[i].Date = result;
                 }
-                cities = cities.AsQueryable<City>().OrderBy(c => c.Name).ThenBy(c => c.Date).ToArray();
+
                 foreach (var city in cities)
                 {
                     Console.WriteLine(cities.ToString());
